@@ -13,12 +13,11 @@ let users = {
   user: {username: 'user', password: 'password', role: 'user'},
 };
 
-beforeAll(async (done) => {
+beforeAll(async () => {
   await startDB();
   const admin = await new Users(users.admin).save();
   const editor = await new Users(users.editor).save();
   const user = await new Users(users.user).save();
-  done()
 });
 
 afterAll(stopDB);
